@@ -10,7 +10,7 @@ module.exports = function(controller) {
       bot.startConversation(message, function(err, convo) {
 
         convo.say({
-          text: 'Hello human! I am brand new Botkit bot, ready to be customized to your needs!',
+          text: 'Hello human! I am Chatbot 2.0 , how can i help you',
           quick_replies: [
             {
               title: 'Help',
@@ -23,6 +23,28 @@ module.exports = function(controller) {
       });
 
     }
+
+  /*  controller.on('hello', function(bot, message) {
+
+        bot.reply(message,'Welcome, new human!');
+
+    });
+
+    // listen for the word "help"
+    controller.hears('hello',  'message_received', function(bot, message) {
+
+        bot.reply(message,'Hello human');
+
+    });
+
+    // add a middleware to log messages sent to the console
+    controller.middleware.send.use(function(bot, message, next) {
+        console.log('Sending: ', message);
+        next();
+    });
+*/
+
+
 
     controller.hears(['help','contact','documentation','docs','community'], 'message_received', function(bot, message) {
 
@@ -79,7 +101,7 @@ module.exports = function(controller) {
         convo.addMessage({
           text: 'I do not know how to help with that. Say `help` at any time to access this menu.'
         },'end');
-                
+
         // set up docs threads
         convo.addMessage({
           text: 'Botkit is extensively documented! Here are some useful links:\n\n[Botkit Studio Help Desk](https://botkit.groovehq.com/help_center)\n\n[Botkit Anywhere README](https://github.com/howdyai/botkit-starter-web/blob/master/readme.md#botkit-anywhere)\n\n[Botkit Developer Guide](https://github.com/howdyai/botkit/blob/master/readme.md#build-your-bot)',
